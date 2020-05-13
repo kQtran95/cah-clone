@@ -20,18 +20,10 @@ const store = new Vuex.Store({
 		},
 		setWhiteCards(state, whiteCards) {
 			state.whiteCards = whiteCards
-		}
-	},
-	getters: {
-		drawBlackDeck() {
-			const index = Math.floor(Math.random() * this.deck.length)
-			const drawnCard = this.blackCards[index]
-			this.blackCards.splice(index, 1)
-			return drawnCard
 		},
-		// drawWhiteDeck(number) {
-			
-		// }
+		discardBlackCard(state, card) {
+			state.discardedBlackCards.push(card)
+		}
 	}
 })
 

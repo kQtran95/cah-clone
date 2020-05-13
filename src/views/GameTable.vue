@@ -67,11 +67,12 @@
 <script>
 export default {
 	name: "GameTable",
-	data: () => ({
-		deck: [],
-		drawnCard: {},
-		
-	}),
+	data() {
+		return {
+			deck: [],
+			drawnCard: {},
+		}
+	},
 	computed: {
 		getAllBlackCards() {
 			return this.$store.state.blackCards;
@@ -82,7 +83,12 @@ export default {
 	},
 	methods: {
 		drawCard() {
-			this.drawnCard = this.$store.getters.drawBlackDeck()
+			console.log("DRAWING CARD")
+			const index = Math.floor(Math.random() * this.deck.length)
+			this.drawnCard = this.deck[index]
+			this.deck.splice(index, 1)
+			this.$store.commit("discardBlackCard", this.drawnCard);
+			this.$store.commit("setBlackCards", this.deck);
 		},
 		fontSize(text) {
 			if (text) return 20 - 90 / (920 - text.length);
