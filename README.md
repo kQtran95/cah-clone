@@ -1,4 +1,4 @@
-# my-app
+# cah-clone
 
 ## Project setup
 ```
