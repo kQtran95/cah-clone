@@ -34,7 +34,7 @@
 				</v-card>
 			</v-row>
 		</div>
-		<!-- <div>
+		<div>
 			<v-row>
 				<v-col cols="1" v-for="(card, i) in cards" :key="i">
 					<v-card
@@ -60,7 +60,7 @@
 					</v-card>
 				</v-col>
 			</v-row>
-		</div> -->
+		</div>
 	</div>
 </template>
 
@@ -75,11 +75,11 @@ export default {
 	},
 	computed: {
 		getAllBlackCards() {
-			return this.$store.state.blackCards;
+			return this.$store.state.blackCards
 		}
 	},
 	mounted() {
-		this.deck = this.getAllBlackCards;
+		this.deck = this.getAllBlackCards
 	},
 	methods: {
 		drawCard() {
@@ -87,8 +87,9 @@ export default {
 			const index = Math.floor(Math.random() * this.deck.length)
 			this.drawnCard = this.deck[index]
 			this.deck.splice(index, 1)
-			this.$store.commit("discardBlackCard", this.drawnCard);
-			this.$store.commit("setBlackCards", this.deck);
+			this.$store.commit("setDrawnCard", this.drawnCard)
+			this.$store.commit("setBlackCards", this.deck)
+			this.$store.commit("discardBlackCard", this.drawnCard)
 		},
 		fontSize(text) {
 			if (text) return 20 - 90 / (920 - text.length);

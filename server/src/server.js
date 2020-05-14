@@ -1,7 +1,5 @@
 // Create express app
 const express = require("express")
-const { parse } = require('fast-csv');
-const fs = require("fs")
 const cors = require('cors')
 const csv = require('csvtojson')
 const app = express()

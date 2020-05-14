@@ -30,31 +30,12 @@
 </template>
 
 <script>
-import axios from "axios";
 
 export default {
   name: "App",
 
   data: () => ({
     //
-  }),
-  mounted() {
-    axios
-      .get("http://localhost:8000/listBlackCards")
-      .then(response => {
-        this.$store.commit("setBlackCards", response.data.cards[0]);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-    axios
-      .get("http://localhost:8000/listWhiteCards")
-      .then(response => {
-        this.$store.commit("setWhiteCards", response.data.cards[0]);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
+  })
 };
 </script>
